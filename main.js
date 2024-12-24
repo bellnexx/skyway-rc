@@ -45,8 +45,6 @@ const token = new SkyWayAuthToken({
 
   (async () => {
     // 1
-    const localVideo = document.getElementById("local-video");
-
     const buttonArea = document.getElementById("button-area");
     const remoteMediaArea = document.getElementById("remote-media-area");
     const roomNameInput = document.getElementById("room-name");
@@ -54,11 +52,8 @@ const token = new SkyWayAuthToken({
     const joinButton = document.getElementById("join");
     const leaveButton = document.getElementById('leave');
 
-    const { audio, video } = await SkyWayStreamFactory.createMicrophoneAudioAndCameraStream(); // 2
+    //const { audio, video } = await SkyWayStreamFactory.createMicrophoneAudioAndCameraStream(); // 2
   
-    video.attach(localVideo); // 3
-    await localVideo.play(); // 4
-
     joinButton.onclick = async () => {
 
         if (roomNameInput.value === "") return;
@@ -73,9 +68,6 @@ const token = new SkyWayAuthToken({
     
         myId.textContent = me.id;
     
-        await me.publish(audio);
-        await me.publish(video);
-
         const subscribeAndAttach = (publication) => {
             if (publication.publisher.id === me.id) return;
       
@@ -128,7 +120,3 @@ const token = new SkyWayAuthToken({
     };
 
   })(); // 1
-
-
-
-

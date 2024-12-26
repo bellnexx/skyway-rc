@@ -58,7 +58,7 @@ const token = new SkyWayAuthToken({
 
     joinButton.onclick = async () => {
 
-        if (roomNameInput.value === "") return;
+        if (roomNameInput === "") return;
       
         const context = await SkyWayContext.Create(token);
         const room = await SkyWayRoom.FindOrCreate(context, {

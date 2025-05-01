@@ -52,7 +52,7 @@ const token = new SkyWayAuthToken({
     const joinButton = document.getElementById("join");
     const leaveButton = document.getElementById('leave');
 
-    //const { audio, video } = await SkyWayStreamFactory.createMicrophoneAudioAndCameraStream(); // 2
+    const { audio, video } = await SkyWayStreamFactory.createMicrophoneAudioAndCameraStream(); // 2
   
     
 
@@ -78,7 +78,7 @@ const token = new SkyWayAuthToken({
             subscribeButton.textContent = `${publication.publisher.id}: ${publication.contentType}`;
             buttonArea.appendChild(subscribeButton);
       
-            //document.getElementById(subscribeButton.id).click();
+            document.getElementById(subscribeButton.id).click();
 
             subscribeButton.onclick = async () => {
               const { stream } = await me.subscribe(publication.id);
